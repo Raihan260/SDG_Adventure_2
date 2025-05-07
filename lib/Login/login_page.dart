@@ -118,6 +118,40 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: AppColor.mainBlack),
                     ),
                   ),
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Container(
+                        width: 104,
+                        height: 3,
+                        color: AppColor.mainBlack,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text("or", style: TextStyle(color: AppColor.mainBlack),),
+                      const SizedBox(width: 8),
+                      Container(
+                        width: 104,
+                        height: 3,
+                        color: AppColor.mainBlack,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () {}, 
+                    child: Row(
+                      children: [
+                        Image.asset('google.png', width: 24, height: 24),
+                        const SizedBox(width: 16),
+                        const Text("Login with Google", style: TextStyle(color: AppColor.mainBlack))
+                      ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.white,
+                      shadowColor: Colors.black.withOpacity(0.1),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+                    ),
+                  )
                 ],
               ),
             )
