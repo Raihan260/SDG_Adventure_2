@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'big_quest.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColor.base,
         elevation: 0,
         actions: [
           IconButton(
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const NotifPage()),
               );
             },
-            icon: const Icon(Icons.notifications_none, color: Colors.black),
+            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
           ),
         ],
       ),
