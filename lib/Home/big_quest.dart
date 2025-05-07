@@ -64,7 +64,7 @@ class BigQuest extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     height: 180,
-                    color: Colors.black.withOpacity(0.3), // overlay gelap
+                    color: AppColor.mainBlack.withOpacity(0.3), // overlay gelap
                   ),
                   Positioned(
                     bottom: 12,
