@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                         validator: (value) =>
                             value == null || value.isEmpty ? 'Please enter your username' : null,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 16),
                       InputField(
                         controller: _passwordController,
                         label: "Password",
@@ -146,8 +146,19 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.8),
+            blurRadius: 16,
+            offset: const Offset(4, 4), // Arah dan intensitas bayangan
+          ),
+        ],
+      ),
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
