@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 import 'big_quest.dart';
 import 'daily_quest.dart';
 import 'Notification/notif_page.dart';
@@ -13,7 +14,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Home',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: AppColor.mainBlack
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,

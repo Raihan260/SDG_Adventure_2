@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 
 class DailyQuest extends StatefulWidget {
   const DailyQuest({super.key});
@@ -53,7 +54,7 @@ class _DailyQuestState extends State<DailyQuest> {
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColor.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -73,7 +74,7 @@ class _DailyQuestState extends State<DailyQuest> {
           ),
           Icon(
             completed ? Icons.check_circle : Icons.radio_button_unchecked,
-            color: completed ? Colors.orange : Colors.grey,
+            color: completed ? AppColor.orange : AppColor.mainGrey,
           ),
         ],
       ),
