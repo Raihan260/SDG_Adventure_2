@@ -5,6 +5,7 @@ import 'big_quest.dart';
 import 'daily_quest.dart';
 import 'Notification/notif_page.dart';
 import 'banner.dart';
+import 'Big_Quest/big_quest_page.dart'; // tambahkan import ini
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
         title: const Text(
           'Home',
           style: TextStyle(
-            color: AppColor.mainBlack
+            color: AppColor.mainBlack,
           ),
         ),
         centerTitle: true,
@@ -41,29 +42,39 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Search Bar----------------------------------------------
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(
-                  color: AppColor.white,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColor.mainGrey.withOpacity(0.3),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    border: InputBorder.none,
-                    icon: Icon(Icons.search),
+              // Search Bar jadi tombol -------------------------------------------------
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BigQuestPage()),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColor.mainGrey.withOpacity(0.3),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.search, color: AppColor.mainGrey),
+                      SizedBox(width: 8),
+                      Text(
+                        'Search',
+                        style: TextStyle(color: AppColor.mainGrey),
+                      ),
+                    ],
                   ),
                 ),
               ),
-
               const SizedBox(height: 16),
 
               // Banner ---------------------------------------------------

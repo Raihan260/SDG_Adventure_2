@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'Big_Quest/big_quest_page.dart';
 import 'Big_Quest/big_quest_detail_page.dart'; // import halaman detail
 import 'package:sdg_adventure_2/color.dart';
 
@@ -11,34 +10,14 @@ class BigQuest extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Big Quest",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const BigQuestPage()),
-                  );
-                },
-                child: const Text(
-                  "View more",
-                  style: TextStyle(
-                    color: AppColor.mainGrey,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-            ],
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            "Big Quest",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(height: 8),
