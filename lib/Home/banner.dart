@@ -12,9 +12,9 @@ class _BannerWidgetState extends State<BannerWidget> {
   int _currentPage = 0;
 
   final List<String> bannerImages = [
-    'assets/beach.jpeg',
-    'assets/beach.jpeg',
-    'assets/beach.jpeg',
+    'assets/beach.jpg',
+    'assets/beach.jpg',
+    'assets/beach.jpg',
   ];
 
   @override

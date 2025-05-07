@@ -55,7 +55,7 @@ class BigQuest extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.asset(
-                    'assets/beach.jpeg',
+                    'assets/beach.jpg',
                     width: double.infinity,
                     height: 180,
                     fit: BoxFit.cover,
