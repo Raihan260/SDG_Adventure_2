@@ -1,6 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sdg_adventure_2/bottom_navbar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +15,42 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  final Map<String, String> _accounts = {
+    "user": "user123", // Akun user
+    "admin": "admin123", // Akun admin
+  };
+
+  Future<void> _saveLoginStatus(String role) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLoggedIn', true);
+    await prefs.setString('role', role); // Simpan role (user atau admin)
+  }
+
+  Future<void> _login() async {
+    if (_formKey.currentState!.validate()) {
+      final username = _usernameController.text.trim();
+      final password = _passwordController.text.trim();
+
+      if (_accounts.containsKey(username) && _accounts[username] == password) {
+        // Simpan status login ke SharedPreferences
+        await _saveLoginStatus(username);
+
+        // Navigasi ke layar sesuai role
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const BottomNavbar()),
+        );
+      } else {
+        // Tampilkan pesan error jika login gagal
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Invalid username or password")),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 32),
                 ElevatedButton(
-                  onPressed: () {}, 
+                  onPressed: _login, 
                   child: Text("Login", style: TextStyle(color: AppColor.mainBlack)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColor.orange,
