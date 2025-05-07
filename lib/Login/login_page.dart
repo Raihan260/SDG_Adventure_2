@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _usernameController,
                         label: "Username",
                         icon: const Icon(
-                          FluentIcons.person_24_filled,
+                          FluentIcons.person_24_regular,
                           color: AppColor.mainGrey,
                         ),
                         validator: (value) =>
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                         label: "Password",
                         obscureText: true,
                         icon: const Icon(
-                          FluentIcons.lock_closed_24_filled,
+                          FluentIcons.lock_closed_24_regular,
                           color: AppColor.mainGrey,
                         ),
                         validator: (value) =>
