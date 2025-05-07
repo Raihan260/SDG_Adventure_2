@@ -39,6 +39,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         selectedItemColor: AppColor.white,
         unselectedItemColor: AppColor.orange,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: AppColor.mainBlack,
         items: const [
           BottomNavigationBarItem(icon: Icon(FluentIcons.home_32_filled),
             activeIcon: Icon(FluentIcons.home_32_filled),
