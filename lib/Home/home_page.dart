@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const NotifPage()),
               );
             },
-            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
+            icon: const Icon(FluentIcons.alert_32_regular, color: Colors.black),
           ),
         ],
       ),
