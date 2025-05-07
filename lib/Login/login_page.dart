@@ -121,6 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 24),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         width: 104,
@@ -145,6 +146,22 @@ class _LoginPageState extends State<LoginPage> {
                         Image.asset('google.png', width: 24, height: 24),
                         const SizedBox(width: 16),
                         const Text("Login with Google", style: TextStyle(color: AppColor.mainBlack))
+                      ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.white,
+                      shadowColor: Colors.black.withOpacity(0.1),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {}, 
+                    child: Row(
+                      children: [
+                        Image.asset('facebook.png', width: 24, height: 24),
+                        const SizedBox(width: 16),
+                        const Text("Login with Facebook", style: TextStyle(color: AppColor.mainBlack))
                       ],
                     ),
                     style: ElevatedButton.styleFrom(
