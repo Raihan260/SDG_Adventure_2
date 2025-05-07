@@ -140,36 +140,57 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
-                    onPressed: () {}, 
-                    child: Row(
-                      children: [
-                        Image.asset('google.png', width: 24, height: 24),
-                        const SizedBox(width: 16),
-                        const Text("Login with Google", style: TextStyle(color: AppColor.mainBlack))
-                      ],
-                    ),
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.white,
                       shadowColor: Colors.black.withOpacity(0.1),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      minimumSize: const Size(364, 48),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: Image.asset('assets/google.png', fit: BoxFit.contain),
+                        ),
+                        const SizedBox(width: 12),
+                        const Text(
+                          "Login with Google",
+                          style: TextStyle(color: AppColor.mainBlack),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {}, 
-                    child: Row(
-                      children: [
-                        Image.asset('facebook.png', width: 24, height: 24),
-                        const SizedBox(width: 16),
-                        const Text("Login with Facebook", style: TextStyle(color: AppColor.mainBlack))
-                      ],
-                    ),
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.white,
                       shadowColor: Colors.black.withOpacity(0.1),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      minimumSize: const Size(364, 48),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                     ),
-                  )
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: Image.asset('assets/facebook.png', fit: BoxFit.contain),
+                        ),
+                        const SizedBox(width: 12),
+                        const Text(
+                          "Login with Facebook",
+                          style: TextStyle(color: AppColor.mainBlack),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )
