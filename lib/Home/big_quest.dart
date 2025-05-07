@@ -3,7 +3,6 @@ import 'Big_Quest/big_quest_page.dart';
 import 'Big_Quest/big_quest_detail_page.dart'; // import halaman detail
 import 'package:sdg_adventure_2/color.dart';
 
-
 class BigQuest extends StatelessWidget {
   const BigQuest({super.key});
 
@@ -61,6 +60,11 @@ class BigQuest extends StatelessWidget {
                     width: double.infinity,
                     height: 180,
                     fit: BoxFit.cover,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 180,
+                    color: Colors.black.withOpacity(0.3), // overlay gelap
                   ),
                   Positioned(
                     bottom: 12,

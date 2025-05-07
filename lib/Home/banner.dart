@@ -43,13 +43,26 @@ class _BannerWidgetState extends State<BannerWidget> {
                 margin: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                    image: AssetImage(bannerImages[index]),
-                    fit: BoxFit.cover,
-                  ),
                 ),
                 child: Stack(
                   children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        bannerImages[index],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.black.withOpacity(0.3), // overlay gelap
+                      ),
+                    ),
                     Positioned(
                       left: 16,
                       bottom: 16,
@@ -63,10 +76,8 @@ class _BannerWidgetState extends State<BannerWidget> {
                         ),
                         child: const Text(
                           'Explore',
-                          style: TextStyle(
-                            color: AppColor.white
-                          ),
-                          ),
+                          style: TextStyle(color: AppColor.white),
+                        ),
                       ),
                     ),
                     Positioned(
@@ -104,7 +115,9 @@ class _BannerWidgetState extends State<BannerWidget> {
               width: _currentPage == index ? 12 : 8,
               height: _currentPage == index ? 12 : 8,
               decoration: BoxDecoration(
-                color: _currentPage == index ? AppColor.orange : AppColor.mainGrey,
+                color: _currentPage == index
+                    ? AppColor.orange
+                    : AppColor.mainGrey,
                 shape: BoxShape.circle,
               ),
             ),

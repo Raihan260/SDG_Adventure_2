@@ -63,11 +63,20 @@ class BigQuestPage extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-                    child: Image.asset(
-                      quest['image']!,
-                      width: double.infinity,
-                      height: 160,
-                      fit: BoxFit.cover,
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          quest['image']!,
+                          width: double.infinity,
+                          height: 160,
+                          fit: BoxFit.cover,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 160,
+                          color: Colors.black.withOpacity(0.3), // overlay gelap
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
