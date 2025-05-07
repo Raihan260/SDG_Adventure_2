@@ -44,11 +44,11 @@ class HomePage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
+                      color: AppColor.mainGrey.withOpacity(0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),
@@ -87,18 +87,18 @@ class HomePage extends StatelessWidget {
                   children: [
                     const Text(
                       '19 Bronze (+3)',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: AppColor.white),
                     ),
                     const SizedBox(height: 8),
                     const Text(
                       'Level 1',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: AppColor.white),
                     ),
                     const SizedBox(height: 8),
                     LinearProgressIndicator(
                       value: 0.3,
-                      color: Colors.orange,
-                      backgroundColor: Colors.grey,
+                      color: AppColor.orange,
+                      backgroundColor: AppColor.mainGrey,
                       minHeight: 6,
                     ),
                   ],

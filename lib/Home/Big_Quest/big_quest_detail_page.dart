@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
+
 
 class BigQuestDetailPage extends StatelessWidget {
   const BigQuestDetailPage({super.key});
@@ -9,13 +11,13 @@ class BigQuestDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Detail Page',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: AppColor.mainBlack),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: AppColor.mainBlack),
           onPressed: () {
             Navigator.pop(context); // Tombol kembali ke HomePage
           },

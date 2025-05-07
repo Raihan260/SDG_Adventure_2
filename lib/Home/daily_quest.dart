@@ -58,7 +58,7 @@ class _DailyQuestState extends State<DailyQuest> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: AppColor.mainGrey.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),

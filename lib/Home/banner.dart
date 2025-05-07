@@ -61,7 +61,12 @@ class _BannerWidgetState extends State<BannerWidget> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: const Text('Explore'),
+                        child: const Text(
+                          'Explore',
+                          style: TextStyle(
+                            color: AppColor.white
+                          ),
+                          ),
                       ),
                     ),
                     Positioned(
@@ -73,11 +78,11 @@ class _BannerWidgetState extends State<BannerWidget> {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: AppColor.orange,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
-                          '13/15',
+                          '13',
                           style: TextStyle(color: AppColor.white),
                         ),
                       ),
