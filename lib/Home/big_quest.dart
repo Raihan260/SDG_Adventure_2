@@ -1,6 +1,7 @@
+// big_quest.dart
 import 'package:flutter/material.dart';
-import 'Big_Quest/big_quest_detail_page.dart'; // import halaman detail
 import 'package:sdg_adventure_2/color.dart';
+import 'package:sdg_adventure_2/Home/Big_Quest/big_quest_banner.dart';
 
 class BigQuest extends StatelessWidget {
   const BigQuest({super.key});
@@ -23,74 +24,7 @@ class BigQuest extends StatelessWidget {
         const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const BigQuestDetailPage()),
-              );
-            },
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    'assets/beach.jpg',
-                    width: double.infinity,
-                    height: 180,
-                    fit: BoxFit.cover,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 180,
-                    color: AppColor.mainBlack.withOpacity(0.3), // overlay gelap
-                  ),
-                  Positioned(
-                    bottom: 12,
-                    left: 12,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Daerah Something",
-                          style: TextStyle(
-                            color: AppColor.white,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Text(
-                          "Membersihkan Pantai di daerah",
-                          style: TextStyle(
-                            color: AppColor.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: AppColor.orange,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Text(
-                        "13 | 14",
-                        style: TextStyle(
-                          color: AppColor.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: buildBigQuestCard(context, bigQuestData[0]),
         ),
       ],
     );
