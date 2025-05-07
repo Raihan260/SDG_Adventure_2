@@ -10,17 +10,17 @@ class BigQuestPage extends StatelessWidget {
       {
         'title': 'Membersihkan Pantai',
         'description': 'Bersihkan sampah di Pantai Ancol',
-        'image': 'assets/beach.jpeg',
+        'image': 'assets/beach.jpg',
       },
       {
         'title': 'Penanaman Pohon',
         'description': 'Menanam 100 pohon di hutan kota',
-        'image': 'assets/beach.jpeg',
+        'image': 'assets/beach.jpg',
       },
       {
         'title': 'Bakti Sosial',
         'description': 'Membantu renovasi panti asuhan',
-        'image': 'assets/beach.jpeg',
+        'image': 'assets/beach.jpg',
       },
     ];
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 
 class BannerWidget extends StatefulWidget {
   const BannerWidget({super.key});
@@ -55,12 +56,15 @@ class _BannerWidgetState extends State<BannerWidget> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.orange,
+                          backgroundColor: AppColor.orange,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: const Text('Explore'),
+                        child: const Text(
+                          'Explore',
+                          style: TextStyle(color: AppColor.white),
+                          ),
                       ),
                     ),
                     Positioned(
@@ -72,12 +76,12 @@ class _BannerWidgetState extends State<BannerWidget> {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: AppColor.orange,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
                           '13/15',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: AppColor.white),
                         ),
                       ),
                     ),
@@ -98,7 +102,7 @@ class _BannerWidgetState extends State<BannerWidget> {
               width: _currentPage == index ? 12 : 8,
               height: _currentPage == index ? 12 : 8,
               decoration: BoxDecoration(
-                color: _currentPage == index ? Colors.orange : Colors.grey,
+                color: _currentPage == index ? AppColor.orange : AppColor.mainGrey,
                 shape: BoxShape.circle,
               ),
             ),

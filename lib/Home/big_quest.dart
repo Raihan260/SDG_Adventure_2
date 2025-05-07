@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Big_Quest/big_quest_page.dart';
 import 'Big_Quest/big_quest_detail_page.dart'; // import halaman detail
+import 'package:sdg_adventure_2/color.dart';
 
 class BigQuest extends StatelessWidget {
   const BigQuest({super.key});
@@ -32,7 +33,7 @@ class BigQuest extends StatelessWidget {
                 child: const Text(
                   "View more",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppColor.mainGrey,
                     fontSize: 14,
                   ),
                 ),
@@ -69,14 +70,14 @@ class BigQuest extends StatelessWidget {
                         Text(
                           "Daerah Something",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.white,
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           "Membersihkan Pantai di daerah",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -90,13 +91,13 @@ class BigQuest extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: AppColor.orange,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Text(
                         "13 | 14",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColor.white,
                           fontSize: 12,
                         ),
                       ),
