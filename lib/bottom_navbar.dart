@@ -1,4 +1,6 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 import 'Home/home_page.dart';
 import 'Search/search_page.dart';
 import 'Profile/profile_page.dart';
@@ -24,46 +26,34 @@ class _BottomNavbarState extends State<BottomNavbar> {
     });
   }
 
-  Widget buildNavItem(IconData iconData, int index) {
-    bool isSelected = _selectedIndex == index;
-
-    return GestureDetector(
-      onTap: () => _onItemTapped(index),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.white : Colors.transparent,
-          borderRadius: BorderRadius.circular(8), // <--- Rounded kecil
-        ),
-        child: Icon(
-          iconData,
-          color: isSelected ? Colors.black87 : Colors.white,
-          size: 28,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.all(6),
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 9),
-        decoration: BoxDecoration(
-          color: Colors.black87,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            buildNavItem(Icons.home, 0),
-            buildNavItem(Icons.menu_book_rounded, 1),
-            buildNavItem(Icons.person, 2),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        elevation: 10,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: AppColor.white,
+        unselectedItemColor: AppColor.orange,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(FluentIcons.home_32_filled),
+            activeIcon: Icon(FluentIcons.home_32_filled),
+            label: "Home"
+          ),
+          BottomNavigationBarItem(icon: Icon(FluentIcons.book_32_filled),
+            activeIcon: Icon(FluentIcons.book_32_filled),
+            label: "Course"
+          ),
+          BottomNavigationBarItem(icon: Icon(FluentIcons.person_32_filled),
+            activeIcon: Icon(FluentIcons.person_32_filled),
+            label: "Profile"
+          )
+        ],
+      )
     );
   }
 }
