@@ -163,7 +163,7 @@ class InputField extends StatelessWidget {
         validator: validator,
         decoration: InputDecoration(
           prefixIcon: icon,
-          labelText: label,
+          hintText: label,
           filled: true,
           fillColor: AppColor.white,
           contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
