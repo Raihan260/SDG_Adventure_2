@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 
 class NotifPage extends StatelessWidget {
   const NotifPage({super.key});
@@ -6,6 +7,7 @@ class NotifPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.base,
       appBar: AppBar(
         title: const Text(
           'Notifications',

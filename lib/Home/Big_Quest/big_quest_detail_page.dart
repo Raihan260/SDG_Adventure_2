@@ -8,6 +8,7 @@ class BigQuestDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.base,
       appBar: AppBar(
         title: const Text(
           'Detail Page',

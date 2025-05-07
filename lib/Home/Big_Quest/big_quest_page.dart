@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/color.dart';
 import 'big_quest_detail_page.dart'; // import halaman detail
 
 class BigQuestPage extends StatelessWidget {
@@ -25,6 +26,7 @@ class BigQuestPage extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: AppColor.base,
       appBar: AppBar(
         title: const Text(
           "Big Quest",
