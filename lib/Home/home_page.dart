@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.black87,
+                  color: AppColor.mainBlack,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
