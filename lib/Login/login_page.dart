@@ -147,7 +147,6 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(16),
@@ -155,7 +154,7 @@ class InputField extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.8),
             blurRadius: 16,
-            offset: const Offset(4, 4), // Arah dan intensitas bayangan
+            offset: const Offset(0, 4), // Arah dan intensitas bayangan
           ),
         ],
       ),
