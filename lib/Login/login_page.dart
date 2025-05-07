@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
 
   final Map<String, String> _accounts = {
@@ -54,11 +53,17 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(FluentIcons.arrow_left_32_filled, color: AppColor.mainBlack))
+            onPressed: () {},
+            icon: const Icon(
+              FluentIcons.arrow_left_32_filled,
+              color: AppColor.mainBlack,
+            ),
+          )
         ],
-        title: const Text("Login",
-            style: TextStyle(color: AppColor.mainBlack)),
+        title: const Text(
+          "Login",
+          style: TextStyle(color: AppColor.mainBlack),
+        ),
         centerTitle: true,
         backgroundColor: AppColor.base,
         elevation: 0,
@@ -77,28 +82,42 @@ class _LoginPageState extends State<LoginPage> {
                       InputField(
                         controller: _usernameController,
                         label: "Username",
-                        icon: const Icon(FluentIcons.person_24_filled, color: AppColor.mainGrey),
+                        icon: const Icon(
+                          FluentIcons.person_24_filled,
+                          color: AppColor.mainGrey,
+                        ),
+                        validator: (value) =>
+                            value == null || value.isEmpty ? 'Please enter your username' : null,
                       ),
                       const SizedBox(height: 8),
                       InputField(
                         controller: _passwordController,
                         label: "Password",
-                        icon: const Icon(FluentIcons.lock_closed_24_filled, color: AppColor.mainGrey),
                         obscureText: true,
-                      )
+                        icon: const Icon(
+                          FluentIcons.lock_closed_24_filled,
+                          color: AppColor.mainGrey,
+                        ),
+                        validator: (value) =>
+                            value == null || value.isEmpty ? 'Please enter your password' : null,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 32),
                   ElevatedButton(
                     onPressed: _login,
-                    child: const Text("Login", style: TextStyle(color: AppColor.mainBlack)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.orange,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      alignment: Alignment.center,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                       minimumSize: const Size(364, 48),
                     ),
-                  )
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(color: AppColor.mainBlack),
+                    ),
+                  ),
                 ],
               ),
             )
@@ -113,38 +132,36 @@ class InputField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final bool obscureText;
-  final FocusNode? focusNode;
-  final String? Function(String?)? validator;
   final Icon icon;
+  final String? Function(String?)? validator;
 
   const InputField({
     super.key,
     required this.controller,
     required this.label,
     this.obscureText = false,
-    this.focusNode,
-    this.validator,
     required this.icon,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      focusNode: focusNode,
-      obscureText: obscureText,
-      textInputAction: TextInputAction.done,
-      validator: validator,
-      decoration: InputDecoration(
-        prefixIcon: icon,
-        labelText: label,
-        labelStyle: const TextStyle(fontSize: 14, color: AppColor.mainGrey),
-        filled: true,
-        fillColor: AppColor.white,
-        contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        validator: validator,
+        decoration: InputDecoration(
+          prefixIcon: icon,
+          labelText: label,
+          filled: true,
+          fillColor: AppColor.white,
+          contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide.none,
+          ),
         ),
       ),
     );
