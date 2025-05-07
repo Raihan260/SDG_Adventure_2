@@ -152,7 +152,7 @@ class InputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.8),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 16,
             offset: const Offset(0, 4), // Arah dan intensitas bayangan
           ),
@@ -160,7 +160,6 @@ class InputField extends StatelessWidget {
       ),
       child: TextFormField(
         controller: controller,
-        obscureText: obscureText,
         validator: validator,
         decoration: InputDecoration(
           prefixIcon: icon,
