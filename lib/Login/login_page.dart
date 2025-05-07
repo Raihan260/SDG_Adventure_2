@@ -51,15 +51,13 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: AppColor.base,
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              FluentIcons.arrow_left_32_filled,
-              color: AppColor.mainBlack,
-            ),
-          )
-        ],
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            FluentIcons.arrow_left_32_filled,
+            color: AppColor.mainBlack,
+          ),
+        ),
         title: const Text(
           "Login",
           style: TextStyle(color: AppColor.mainBlack),
