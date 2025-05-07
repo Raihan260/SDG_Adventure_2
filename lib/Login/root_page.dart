@@ -11,37 +11,34 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  late Future<bool> _loginStatusFuture;
-
-  Future<bool> checkLoginStatus() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isLoggedIn') ?? false;
-  }
-
   @override
   void initState() {
     super.initState();
-    _loginStatusFuture = checkLoginStatus();
+    _checkLoginStatus();
+  }
+
+  Future<void> _checkLoginStatus() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+
+    if (isLoggedIn) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const BottomNavbar()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<bool>(
-      future: _loginStatusFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        } else if (snapshot.hasError) {
-          return const Scaffold(
-            body: Center(child: Text("Something went wrong")),
-          );
-        } else {
-          final isLoggedIn = snapshot.data ?? false;
-          return isLoggedIn ? const BottomNavbar() : const LoginPage();
-        }
-      },
+    // Tampilkan loading sementara saat cek login
+    return const Scaffold(
+      body: Center(child: CircularProgressIndicator()),
     );
   }
 }
