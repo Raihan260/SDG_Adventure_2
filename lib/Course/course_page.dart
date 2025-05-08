@@ -64,7 +64,7 @@ class CoursePage extends StatelessWidget {
                     SizedBox(
                       width: itemWidth,
                       child: Image.asset(
-                        'assets/Goal_$i.png',
+                        'assets/Goal-$i.png',
                         fit: BoxFit.cover,
                       ),
                     ),
