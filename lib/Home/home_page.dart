@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
           'Home',
           style: TextStyle(
             color: AppColor.mainBlack,
+            fontSize: 16
           ),
         ),
         centerTitle: true,
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const NotifPage()),
               );
             },
-            icon: const Icon(FluentIcons.alert_32_regular, color: Colors.black),
+            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
           ),
         ],
       ),
