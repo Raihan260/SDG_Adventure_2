@@ -1,8 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:sdg_adventure_2/Course/course_page.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'Home/home_page.dart';
-import 'Search/search_page.dart';
 import 'Profile/profile_page.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -16,7 +16,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
-    SearchPage(),
+    CoursePage(),
     ProfilePage(),
   ];
 
