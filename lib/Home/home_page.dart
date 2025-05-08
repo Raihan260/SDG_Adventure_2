@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Row(
                     children: const [
-                      Icon(Icons.search, color: AppColor.mainGrey),
+                      Icon(FluentIcons.search_24_filled, color: AppColor.mainGrey),
                       SizedBox(width: 8),
                       Text(
                         'Search',

@@ -137,56 +137,67 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.white,
-                      shadowColor: Colors.black.withOpacity(0.1),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      minimumSize: const Size(364, 48),
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: Image.asset('assets/google.png', fit: BoxFit.contain),
-                        ),
-                        const SizedBox(width: 12),
-                        const Text(
-                          "Login with Google",
-                          style: TextStyle(color: AppColor.mainBlack),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColor.mainBlack.withOpacity(0.1),
+                            blurRadius: 16,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Image.asset('assets/google.png', fit: BoxFit.contain),
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            'Login with Google',
+                            style: TextStyle(color: AppColor.mainBlack),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.white,
-                      shadowColor: Colors.black.withOpacity(0.1),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      minimumSize: const Size(364, 48),
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: Image.asset('assets/facebook.png', fit: BoxFit.contain),
-                        ),
-                        const SizedBox(width: 12),
-                        const Text(
-                          "Login with Facebook",
-                          style: TextStyle(color: AppColor.mainBlack),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColor.mainBlack.withOpacity(0.1),
+                            blurRadius: 16,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Image.asset('assets/facebook.png', fit: BoxFit.contain),
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            'Login with Google',
+                            style: TextStyle(color: AppColor.mainBlack),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
