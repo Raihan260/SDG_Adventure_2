@@ -60,7 +60,7 @@ class CoursePage extends StatelessWidget {
                 spacing: 8,
                 runSpacing: 8,
                 children: [
-                  for (int i = 1; i <= 6; i++)
+                  for (int i = 1; i <= 17; i++)
                     SizedBox(
                       width: itemWidth,
                       child: Image.asset(
