@@ -56,7 +56,7 @@ class BigQuestDetailPage extends StatelessWidget {
                 height: 160,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(item.imageUrl),
+                    image: AssetImage("assets/${item.imageUrl}"),
                     fit: BoxFit.cover,
                   ),
                 ),
