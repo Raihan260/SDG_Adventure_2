@@ -58,6 +58,8 @@ Widget buildBigQuestCard(BuildContext context, BigQuestBanner item) {
                 ),
                 Text(
                   item.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: AppColor.white,
                     fontSize: 18,

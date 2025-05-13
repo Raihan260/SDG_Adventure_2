@@ -217,6 +217,7 @@ class BigQuestDetailPage extends StatelessWidget {
               );
             }).toList(),
           ),
+          
         ],
       ),
     );
