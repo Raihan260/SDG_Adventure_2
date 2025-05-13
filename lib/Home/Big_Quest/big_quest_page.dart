@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'package:sdg_adventure_2/Home/Big_Quest/big_quest_banner.dart';
+import 'package:sdg_adventure_2/utils/Big_quest_banner.dart';
+import 'package:sdg_adventure_2/Utils/Mock_data.dart';
 
 class BigQuestPage extends StatefulWidget {
   const BigQuestPage({super.key});
@@ -12,9 +14,9 @@ class BigQuestPage extends StatefulWidget {
 
 class _BigQuestPageState extends State<BigQuestPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<Map<String, String>> allBigQuests = bigQuestData;
+  final List<BigQuestBanner> allBigQuests = bigQuestBanner;
 
-  List<Map<String, String>> filteredQuests = [];
+  List<BigQuestBanner> filteredQuests = [];
 
   @override
   void initState() {
@@ -27,9 +29,9 @@ class _BigQuestPageState extends State<BigQuestPage> {
     final query = _searchController.text.toLowerCase();
     setState(() {
       filteredQuests = allBigQuests.where((quest) {
-        final title = quest['title']!.toLowerCase();
-        final description = quest['description']!.toLowerCase();
-        return title.contains(query) || description.contains(query);
+        final title = quest.title.toLowerCase();
+        final location = quest.location.toLowerCase();
+        return title.contains(query) || location.contains(query);
       }).toList();
     });
   }

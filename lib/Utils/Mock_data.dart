@@ -20,14 +20,14 @@ final List<BigQuestBanner> bigQuestBanner = [
 
 final List<BigQuestDetail> bigQuestDetail = [
   BigQuestDetail(
-    detailId: "1",
+    itemId: "1",
     quest: ["Membersihkan sampah di sekitar pantai", "Membereskan kerusakan fasilitas pantai"],
     reward: ["100 Poin", "25 Exp", "Makan siang gratis"],
     organizer: ["Pemerintah daerah something", "Lembaga something"],
     sponsor: ["Binus", "Aqua", "Indofood"],
   ),
   BigQuestDetail(
-    detailId: "2",
+    itemId: "2",
     quest: ["Membagikan makanan kepada korban bencana alam", "Membagikan sembako kepada korban bencana alam"],
     reward: ["100 Poin", "20 Exp", "Sembako"],
     organizer: ["Pemerintah daerah something", "Lembaga amal"],
@@ -45,7 +45,7 @@ BigQuestBanner? getItemById(String itemId) {
 
 BigQuestDetail? getItemDetailById(String itemId) {
   try {
-    return bigQuestDetail.firstWhere((detail) => detail.detailId == itemId);
+    return bigQuestDetail.firstWhere((detail) => detail.itemId == itemId);
   } catch (e) {
     return null;
   }

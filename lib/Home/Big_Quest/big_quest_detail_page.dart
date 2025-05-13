@@ -3,7 +3,14 @@ import 'package:sdg_adventure_2/color.dart';
 
 
 class BigQuestDetailPage extends StatelessWidget {
-  const BigQuestDetailPage({super.key});
+  final String itemId;
+  final String detailId;
+
+  const BigQuestDetailPage({
+    super.key,
+    required this.itemId,
+    required this.detailId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class BigQuestDetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          
+
         ],
       )
     );

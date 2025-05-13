@@ -2,45 +2,38 @@
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'big_quest_detail_page.dart';
+import 'package:sdg_adventure_2/utils/Big_quest_banner.dart';
+import 'package:sdg_adventure_2/utils/Big_quest_detail.dart'; // ← Tambahkan ini
 
-final List<Map<String, String>> bigQuestData = [
-  {
-    'title': 'Membersihkan Pantai',
-    'description': 'Bersihkan sampah di Pantai Ancol',
-    'image': 'assets/beach.jpg',
-    'location': 'Pantai Ancol',
-    'progress': '13 | 14',
-  },
-  {
-    'title': 'Penanaman Pohon',
-    'description': 'Menanam 100 pohon di hutan kota',
-    'image': 'assets/beach.jpg',
-    'location': 'Hutan Kota',
-    'progress': '20 | 50',
-  },
-  {
-    'title': 'Bakti Sosial',
-    'description': 'Membantu renovasi panti asuhan',
-    'image': 'assets/beach.jpg',
-    'location': 'Panti Asuhan Cinta',
-    'progress': '5 | 10',
-  },
-];
-
-Widget buildBigQuestCard(BuildContext context, Map<String, String> quest) {
+Widget buildBigQuestCard(BuildContext context, BigQuestBanner item) {
   return GestureDetector(
     onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const BigQuestDetailPage()),
-      );
+      // Mengambil detail quest berdasarkan itemId
+      final String detail = (item.itemId);
+
+      if (detail != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BigQuestDetailPage(
+              itemId: item.itemId,
+              detailId: detail,
+            ),
+          ),
+        );
+      } else {
+        // Fallback kalau data tidak ditemukan
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Detail tidak ditemukan")),
+        );
+      }
     },
     child: ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Stack(
         children: [
           Image.asset(
-            quest['image']!,
+            "assets/images/${item.imageUrl}",
             width: double.infinity,
             height: 180,
             fit: BoxFit.cover,
@@ -57,14 +50,14 @@ Widget buildBigQuestCard(BuildContext context, Map<String, String> quest) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  quest['location']!,
+                  item.location,
                   style: const TextStyle(
                     color: AppColor.white,
                     fontSize: 14,
                   ),
                 ),
                 Text(
-                  quest['description']!,
+                  item.title,
                   style: const TextStyle(
                     color: AppColor.white,
                     fontSize: 18,
@@ -84,7 +77,7 @@ Widget buildBigQuestCard(BuildContext context, Map<String, String> quest) {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
-                quest['progress']!,
+                "SDG: ${item.sdg.join(', ')}",
                 style: const TextStyle(
                   color: AppColor.white,
                   fontSize: 12,

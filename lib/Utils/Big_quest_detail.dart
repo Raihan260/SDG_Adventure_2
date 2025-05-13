@@ -1,12 +1,12 @@
 class BigQuestDetail {
-  final String detailId;
+  final String itemId;
   final List<String> quest;
   final List<String> reward;
   final List<String> organizer;
   final List<String> sponsor;
 
   BigQuestDetail({
-    required this.detailId,
+    required this.itemId,
     required this.quest,
     required this.reward,
     required this.organizer,
