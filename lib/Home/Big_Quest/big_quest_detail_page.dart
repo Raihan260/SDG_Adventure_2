@@ -20,13 +20,15 @@ class BigQuestDetailPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColor.mainBlack),
           onPressed: () {
-            Navigator.pop(context); // Tombol kembali ke HomePage
+            Navigator.pop(context);
           },
         ),
       ),
-      body: const Center(
-        child: Text('Halaman Detail Page.', style: TextStyle(fontSize: 16)),
-      ),
+      body: ListView(
+        children: [
+          
+        ],
+      )
     );
   }
 }
