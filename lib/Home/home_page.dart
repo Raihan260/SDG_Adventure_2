@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const BigQuestPage()),
+                    MaterialPageRoute(builder: (context) => BigQuestPage()),
                   );
                 },
                 child: Container(

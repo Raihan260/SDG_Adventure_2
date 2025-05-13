@@ -1,27 +1,23 @@
-// big_quest_page.dart
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'package:sdg_adventure_2/utils/Big_quest_banner.dart';
 import 'package:sdg_adventure_2/utils/Mock_data.dart';
+import 'package:sdg_adventure_2/Home/Big_Quest/big_quest_banner.dart'; // buildBigQuestCard()
 
 class BigQuestPage extends StatefulWidget {
-  const BigQuestPage({super.key});
-
   @override
-  State<BigQuestPage> createState() => _BigQuestPageState();
+  _BigQuestPageState createState() => _BigQuestPageState();
 }
 
 class _BigQuestPageState extends State<BigQuestPage> {
   final TextEditingController _searchController = TextEditingController();
   final List<BigQuestBanner> allBigQuests = bigQuestBanner;
-
-  List<BigQuestBanner> filteredQuests = [];
   List<BigQuestBanner> filteredQuests = [];
 
   @override
   void initState() {
     super.initState();
-    filteredQuests = bigQuestBanner; // dari Mock_data.dart
+    filteredQuests = allBigQuests; // Tampilkan semua awalnya
     _searchController.addListener(_onSearchChanged);
   }
 
@@ -32,102 +28,52 @@ class _BigQuestPageState extends State<BigQuestPage> {
         final title = quest.title.toLowerCase();
         final location = quest.location.toLowerCase();
         return title.contains(query) || location.contains(query);
-      filteredQuests = bigQuestBanner.where((quest) {
-        final title = quest.title.toLowerCase();
-        final location = quest.location.toLowerCase();
-        return title.contains(query) || location.contains(query);
       }).toList();
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Big Quest'),
+        backgroundColor: AppColor.base,
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: 'Cari quest berdasarkan judul atau lokasi...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: filteredQuests.isEmpty
+                ? Center(child: Text("Tidak ada quest ditemukan."))
+                : ListView.separated(
+                    padding: const EdgeInsets.all(12),
+                    itemCount: filteredQuests.length,
+                    separatorBuilder: (_, __) => SizedBox(height: 12),
+                    itemBuilder: (context, index) {
+                      return buildBigQuestCard(context, filteredQuests[index]);
+                    },
+                  ),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.base,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(
-                  color: AppColor.white,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColor.mainGrey.withOpacity(0.3),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.search, color: Colors.grey),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: TextField(
-                        controller: _searchController,
-                        autofocus: true,
-                        decoration: const InputDecoration(
-                          hintText: 'Search',
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: filteredQuests.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 4,
-                      child: buildBigQuestCard(context, filteredQuests[index]),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-  Widget buildBigQuestCard(BuildContext context, BigQuestBanner quest) {
-    return ListTile(
-      contentPadding: const EdgeInsets.all(16),
-      title: Text(quest.title, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(quest.location),
-      leading: Image.asset('assets/${quest.imageUrl}', width: 50, height: 50, fit: BoxFit.cover),
-      onTap: () {
-        // Navigasi ke detail quest bisa ditambahkan di sini
-        // Misal: Navigator.push(...)
-      },
-    );
   }
 }

@@ -33,7 +33,7 @@ Widget buildBigQuestCard(BuildContext context, BigQuestBanner item) {
       child: Stack(
         children: [
           Image.asset(
-            "assets/images/${item.imageUrl}",
+            "assets/${item.imageUrl}",
             width: double.infinity,
             height: 180,
             fit: BoxFit.cover,
