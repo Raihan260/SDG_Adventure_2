@@ -4,10 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sdg_adventure_2/Login/login_page.dart';
 import 'package:sdg_adventure_2/progress_bar.dart';
 import 'package:sdg_adventure_2/Home/Notification/notif_page.dart';
-import 'package:sdg_adventure_2/color.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-
-
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -19,7 +16,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<void> _logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
+    await prefs.clear(); // Hapus data login
     if (!mounted) return;
     Navigator.pushReplacement(
       context,
@@ -51,25 +48,45 @@ class _ProfilePageState extends State<ProfilePage> {
                 MaterialPageRoute(builder: (context) => const NotifPage()),
               );
             },
-            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
+            icon: const Icon(
+              FluentIcons.alert_32_regular,
+              color: AppColor.mainBlack,
+            ),
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Header Gambar
+            // Header Gambar & Avatar
             Stack(
               alignment: Alignment.center,
+              clipBehavior: Clip.none,
               children: [
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  height: 120,
+                  height: 160,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: const DecorationImage(
-                      image: AssetImage('assets/header.jpg'), // Ganti dengan gambar kamu
+                      image: AssetImage('assets/beach.jpg'),
                       fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 10,
+                  right: 30,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: AppColor.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.edit,
+                      size: 23,
+                      color: AppColor.mainBlack,
                     ),
                   ),
                 ),
@@ -80,38 +97,23 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
+                        backgroundColor: AppColor.white,
+                        child: const CircleAvatar(
                           radius: 36,
-                          backgroundImage: AssetImage('assets/profile.jpg'), // Ganti dengan gambar kamu
+                          backgroundImage: AssetImage('assets/Goal-1.png'),
                         ),
                       ),
-                      Positioned(
-                        bottom: 4,
-                        right: 4,
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.edit,
-                            size: 16,
-                            color: AppColor.mainBlack,
-                          ),
-                        ),
-                      )
                     ],
                   ),
-                )
+                ),
               ],
             ),
-            const SizedBox(height: 48), // Agar jarak avatar tidak menabrak
+            const SizedBox(height: 48),
 
             // Nama & Email
             const Text(
               'User_123',
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontFamily: 'Montserrat_SemiBold',
                 fontSize: 18,
@@ -121,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 4),
             const Text(
               'user123@gmail.com',
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontFamily: 'Montserrat_Regular',
                 color: AppColor.mainGrey,
@@ -165,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   onTap: () {
-                    // Arahkan ke halaman pengaturan
+                    // Navigasi ke halaman pengaturan (jika sudah ada)
                   },
                 ),
               ),

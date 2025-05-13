@@ -6,14 +6,14 @@ final List<BigQuestBanner> bigQuestBanner = [
     itemId: "1",
     title: "Membersihkan sampah pantai di daerah something",
     location: "Daerah Something",
-    imageUrl: "Beach.jpg",
+    imageUrl: "beach.jpg",
     sdg: ["13", "15"],
   ),
   BigQuestBanner(
     itemId: "2",
     title: "Membagikan makanan di daerah something",
     location: "Daerah something",
-    imageUrl: "Beach.jpg",
+    imageUrl: "beach.jpg",
     sdg: ["1", "3"],
   ),
 ];
