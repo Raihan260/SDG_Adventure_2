@@ -1,3 +1,4 @@
+// big_quest_page.dart
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'package:sdg_adventure_2/utils/Big_quest_banner.dart';
@@ -12,6 +13,9 @@ class BigQuestPage extends StatefulWidget {
 
 class _BigQuestPageState extends State<BigQuestPage> {
   final TextEditingController _searchController = TextEditingController();
+  final List<BigQuestBanner> allBigQuests = bigQuestBanner;
+
+  List<BigQuestBanner> filteredQuests = [];
   List<BigQuestBanner> filteredQuests = [];
 
   @override
@@ -24,6 +28,10 @@ class _BigQuestPageState extends State<BigQuestPage> {
   void _onSearchChanged() {
     final query = _searchController.text.toLowerCase();
     setState(() {
+      filteredQuests = allBigQuests.where((quest) {
+        final title = quest.title.toLowerCase();
+        final location = quest.location.toLowerCase();
+        return title.contains(query) || location.contains(query);
       filteredQuests = bigQuestBanner.where((quest) {
         final title = quest.title.toLowerCase();
         final location = quest.location.toLowerCase();
@@ -34,7 +42,6 @@ class _BigQuestPageState extends State<BigQuestPage> {
 
   @override
   void dispose() {
-    _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     super.dispose();
   }
@@ -88,29 +95,19 @@ class _BigQuestPageState extends State<BigQuestPage> {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child: filteredQuests.isEmpty
-                    ? const Center(
-                        child: Text(
-                          "No quests found.",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                          ),
-                        ),
-                      )
-                    : ListView.builder(
-                        itemCount: filteredQuests.length,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            margin: const EdgeInsets.only(bottom: 16),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            elevation: 4,
-                            child: buildBigQuestCard(context, filteredQuests[index]),
-                          );
-                        },
+                child: ListView.builder(
+                  itemCount: filteredQuests.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
                       ),
+                      elevation: 4,
+                      child: buildBigQuestCard(context, filteredQuests[index]),
+                    );
+                  },
+                ),
               ),
             ],
           ),
@@ -118,6 +115,8 @@ class _BigQuestPageState extends State<BigQuestPage> {
       ),
     );
   }
+}
+
 
   Widget buildBigQuestCard(BuildContext context, BigQuestBanner quest) {
     return ListTile(
