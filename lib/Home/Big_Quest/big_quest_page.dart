@@ -35,6 +35,7 @@ class _BigQuestPageState extends State<BigQuestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.base,
       appBar: AppBar(
         title: Text('Big Quest'),
         backgroundColor: AppColor.base,

@@ -65,6 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
               alignment: Alignment.center,
               clipBehavior: Clip.none,
               children: [
+                //Background ------------------------------------------------
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
                   height: 160,

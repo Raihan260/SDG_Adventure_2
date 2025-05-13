@@ -46,27 +46,31 @@ Widget buildBigQuestCard(BuildContext context, BigQuestBanner item) {
           Positioned(
             bottom: 12,
             left: 12,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  item.location,
-                  style: const TextStyle(
-                    color: AppColor.white,
-                    fontSize: 14,
+            right: 12, // tambahkan ini
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width - 24, // padding kiri + kanan
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.location,
+                    style: const TextStyle(
+                      color: AppColor.white,
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-                Text(
-                  item.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: AppColor.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    item.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: AppColor.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Positioned(
