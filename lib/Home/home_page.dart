@@ -6,6 +6,8 @@ import 'daily_quest.dart';
 import 'Notification/notif_page.dart';
 import 'banner.dart';
 import 'Big_Quest/big_quest_page.dart'; // tambahkan import ini
+import 'package:sdg_adventure_2/progress_bar.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -89,34 +91,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Progress Bar Section -------------------------------------
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: AppColor.mainBlack,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '19 Bronze (+3)',
-                      style: TextStyle(color: AppColor.white),
-                    ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Level 1',
-                      style: TextStyle(color: AppColor.white),
-                    ),
-                    const SizedBox(height: 8),
-                    LinearProgressIndicator(
-                      value: 0.3,
-                      color: AppColor.orange,
-                      backgroundColor: AppColor.mainGrey,
-                      minHeight: 6,
-                    ),
-                  ],
-                ),
-              ),
+              const ProgressBarWidget(),
 
               const SizedBox(height: 24),
 
