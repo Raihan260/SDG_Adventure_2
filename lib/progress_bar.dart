@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 
 class ProgressBarWidget extends StatelessWidget {
-  const ProgressBarWidget({super.key});
+  final String badgeText;
+  final String levelText;
+  final double progressValue;
+
+  const ProgressBarWidget({
+    super.key,
+    required this.badgeText,
+    required this.levelText,
+    required this.progressValue,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +24,18 @@ class ProgressBarWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            '19 Bronze (+3)',
-            style: TextStyle(color: AppColor.white),
+          Text(
+            badgeText,
+            style: const TextStyle(color: AppColor.white),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Level 1',
-            style: TextStyle(color: AppColor.white),
+          Text(
+            levelText,
+            style: const TextStyle(color: AppColor.white),
           ),
           const SizedBox(height: 8),
           LinearProgressIndicator(
-            value: 0.3,
+            value: progressValue,
             color: AppColor.orange,
             backgroundColor: AppColor.mainGrey,
             minHeight: 6,

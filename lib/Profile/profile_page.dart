@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sdg_adventure_2/Login/login_page.dart';
+import 'package:sdg_adventure_2/progress_bar.dart';
+import 'package:sdg_adventure_2/Home/Notification/notif_page.dart';
+import 'package:sdg_adventure_2/color.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+
+
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -13,7 +19,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<void> _logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.clear(); // Menghapus semua data login
+    await prefs.clear();
     if (!mounted) return;
     Navigator.pushReplacement(
       context,
@@ -25,24 +31,171 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.base,
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _logout,
-          style: ElevatedButton.styleFrom(
-            fixedSize: const Size(120, 40),
-            backgroundColor: AppColor.orange,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+            fontFamily: 'Montserrat_SemiBold',
+            color: AppColor.mainBlack,
+            fontSize: 18,
           ),
-          child: const Text(
-            "Logout",
-            style: TextStyle(
-              fontFamily: 'Montserrat_SemiBold',
-              fontSize: 16,
-              color: AppColor.mainBlack,
-            ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NotifPage()),
+              );
+            },
+            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
           ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Header Gambar
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/header.jpg'), // Ganti dengan gambar kamu
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: -35,
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 36,
+                          backgroundImage: AssetImage('assets/profile.jpg'), // Ganti dengan gambar kamu
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 4,
+                        right: 4,
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.edit,
+                            size: 16,
+                            color: AppColor.mainBlack,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: 48), // Agar jarak avatar tidak menabrak
+
+            // Nama & Email
+            const Text(
+              'User_123',
+              style: TextStyle(
+                fontFamily: 'Montserrat_SemiBold',
+                fontSize: 18,
+                color: AppColor.mainBlack,
+              ),
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              'user123@gmail.com',
+              style: TextStyle(
+                fontFamily: 'Montserrat_Regular',
+                color: AppColor.mainGrey,
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Progress Bar
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ProgressBarWidget(
+                badgeText: '19 Bronze (+3)',
+                levelText: 'Level 1',
+                progressValue: 0.5,
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Tombol Pengaturan
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  leading: const Icon(Icons.settings, color: AppColor.mainBlack),
+                  title: const Text(
+                    'Pengaturan',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat_SemiBold',
+                      fontSize: 14,
+                      color: AppColor.mainBlack,
+                    ),
+                  ),
+                  onTap: () {
+                    // Arahkan ke halaman pengaturan
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Tombol Logout
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ElevatedButton(
+                onPressed: _logout,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColor.orange,
+                  minimumSize: const Size.fromHeight(48),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                ),
+                child: const Text(
+                  "Logout",
+                  style: TextStyle(
+                    fontFamily: 'Montserrat_SemiBold',
+                    fontSize: 16,
+                    color: AppColor.mainBlack,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
         ),
       ),
     );
