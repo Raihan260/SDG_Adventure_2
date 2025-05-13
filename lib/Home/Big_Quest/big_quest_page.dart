@@ -1,9 +1,6 @@
-// big_quest_page.dart
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
-import 'package:sdg_adventure_2/Home/Big_Quest/big_quest_banner.dart';
-import 'package:sdg_adventure_2/utils/Big_quest_banner.dart';
-import 'package:sdg_adventure_2/Utils/Mock_data.dart';
+import 'package:sdg_adventure_2/home/Big_Quest/big_quest_banner.dart'; // lowercase path
 
 class BigQuestPage extends StatefulWidget {
   const BigQuestPage({super.key});
@@ -14,9 +11,7 @@ class BigQuestPage extends StatefulWidget {
 
 class _BigQuestPageState extends State<BigQuestPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<BigQuestBanner> allBigQuests = bigQuestBanner;
-
-  List<BigQuestBanner> filteredQuests = [];
+  List<Map<String, String>> filteredQuests = [];
 
   @override
   void initState() {
@@ -29,15 +24,16 @@ class _BigQuestPageState extends State<BigQuestPage> {
     final query = _searchController.text.toLowerCase();
     setState(() {
       filteredQuests = allBigQuests.where((quest) {
-        final title = quest.title.toLowerCase();
-        final location = quest.location.toLowerCase();
-        return title.contains(query) || location.contains(query);
+        final title = quest['title']?.toLowerCase() ?? '';
+        final description = quest['description']?.toLowerCase() ?? '';
+        return title.contains(query) || description.contains(query);
       }).toList();
     });
   }
 
   @override
   void dispose() {
+    _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     super.dispose();
   }
@@ -91,19 +87,29 @@ class _BigQuestPageState extends State<BigQuestPage> {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child: ListView.builder(
-                  itemCount: filteredQuests.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                child: filteredQuests.isEmpty
+                    ? const Center(
+                        child: Text(
+                          "No quests found.",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                          ),
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: filteredQuests.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            margin: const EdgeInsets.only(bottom: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            elevation: 4,
+                            child: buildBigQuestCard(context, filteredQuests[index]),
+                          );
+                        },
                       ),
-                      elevation: 4,
-                      child: buildBigQuestCard(context, filteredQuests[index]),
-                    );
-                  },
-                ),
               ),
             ],
           ),
