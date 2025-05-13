@@ -11,7 +11,7 @@ class BigQuestDetailPage extends StatelessWidget {
       backgroundColor: AppColor.base,
       appBar: AppBar(
         title: const Text(
-          'Detail Page',
+          'Detail',
           style: TextStyle(color: AppColor.mainBlack),
         ),
         centerTitle: true,
