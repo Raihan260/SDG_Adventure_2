@@ -1,6 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
+import 'package:sdg_adventure_2/Home/Notification/notif_page.dart';
+
 
 class CoursePage extends StatelessWidget {
   const CoursePage({super.key});
@@ -22,9 +24,14 @@ class CoursePage extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {}, 
-            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack)
-          )
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NotifPage()),
+              );
+            },
+            icon: const Icon(FluentIcons.alert_32_regular, color: AppColor.mainBlack),
+          ),
         ],
       ),
       body: ListView(
