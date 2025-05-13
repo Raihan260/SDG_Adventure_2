@@ -217,7 +217,20 @@ class BigQuestDetailPage extends StatelessWidget {
               );
             }).toList(),
           ),
-          
+          ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.orange,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            minimumSize: const Size(364, 48),
+          ),
+          child: const Text(
+            "Daftar",
+            style: TextStyle(color: AppColor.mainBlack),
+          ),
+        ),
         ],
       ),
     );
