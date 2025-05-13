@@ -5,6 +5,8 @@ import 'package:sdg_adventure_2/Login/login_page.dart';
 import 'package:sdg_adventure_2/progress_bar.dart';
 import 'package:sdg_adventure_2/Home/Notification/notif_page.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'pengaturan_page.dart';
+import 'background_edit_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -77,16 +79,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 Positioned(
                   bottom: 10,
                   right: 30,
-                  child: Container(
-                    padding: const EdgeInsets.all(4),
-                    decoration: const BoxDecoration(
-                      color: AppColor.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.edit,
-                      size: 23,
-                      color: AppColor.mainBlack,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const BackgroundEditPage()),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                        color: AppColor.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.edit,
+                        size: 23,
+                        color: AppColor.mainBlack,
+                      ),
                     ),
                   ),
                 ),
@@ -168,7 +178,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   onTap: () {
-                    // Navigasi ke halaman pengaturan (jika sudah ada)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                    );
                   },
                 ),
               ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sdg_adventure_2/color.dart';
 
-class PengaturanPage extends StatelessWidget {
-  const PengaturanPage({super.key});
+class BackgroundEditPage extends StatelessWidget {
+  const BackgroundEditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,20 +11,20 @@ class PengaturanPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: AppColor.mainBlack),
         title: const Text(
-          'Pengaturan',
+          'Edit Background',
           style: TextStyle(
             fontFamily: 'Montserrat_SemiBold',
             fontSize: 18,
             color: AppColor.mainBlack,
           ),
         ),
-        centerTitle: true,
-        iconTheme: const IconThemeData(color: AppColor.mainBlack),
       ),
       body: const Center(
         child: Text(
-          'Ini adalah halaman pengaturan.',
+          'Halaman untuk mengedit background.',
           style: TextStyle(
             fontFamily: 'Montserrat_Regular',
             fontSize: 16,
