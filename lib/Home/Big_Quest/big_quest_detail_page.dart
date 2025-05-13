@@ -113,7 +113,7 @@ class BigQuestDetailPage extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           const Text(
             "Daftar Tugas",
             style: const TextStyle(fontSize: 16, color: AppColor.mainBlack),
@@ -123,7 +123,85 @@ class BigQuestDetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: detail.quest.map((point) {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("• ", style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: Text(
+                        point,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            "Hadiah",
+            style: const TextStyle(fontSize: 16, color: AppColor.mainBlack),
+          ),
+          const SizedBox(height: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: detail.reward.map((point) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("• ", style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: Text(
+                        point,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            "Penyelenggara",
+            style: const TextStyle(fontSize: 16, color: AppColor.mainBlack),
+          ),
+          const SizedBox(height: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: detail.organizer.map((point) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("• ", style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: Text(
+                        point,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            "Sponsor",
+            style: const TextStyle(fontSize: 16, color: AppColor.mainBlack),
+          ),
+          const SizedBox(height: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: detail.sponsor.map((point) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
