@@ -4,14 +4,14 @@ import 'package:sdg_adventure_2/utils/Big_quest_detail.dart';
 final List<BigQuestBanner> bigQuestBanner = [
   BigQuestBanner(
     itemId: "1",
-    title: "Membersihkan sampah pantai di daerah something",
+    title: "Membersihkan sampah pantai di daerah riau",
     location: "Daerah riau",
     imageUrl: "pantai_kotor.jpg",
     sdg: ["13", "15"],
   ),
   BigQuestBanner(
     itemId: "2",
-    title: "Membagikan makanan di daerah something",
+    title: "Membagikan makanan di daerah jawa timur",
     location: "Daerah jawa timur",
     imageUrl: "berbagi.jpeg",
     sdg: ["1", "3"],
