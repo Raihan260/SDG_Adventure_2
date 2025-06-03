@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
 
               // Progress Bar Section -------------------------------------
               const ProgressBarWidget(
-                badgeText: 'Bronze',
+                badgeText: 'SDG pemula',
                 levelText: 'Level 1',
                 progressValue: 0,
               ),

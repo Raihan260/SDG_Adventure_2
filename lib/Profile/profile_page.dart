@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: const DecorationImage(
-                      image: AssetImage('assets/beach.jpg'),
+                      image: AssetImage('assets/background_default.jpeg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -111,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         backgroundColor: AppColor.white,
                         child: const CircleAvatar(
                           radius: 36,
-                          backgroundImage: AssetImage('assets/Goal-1.png'),
+                          backgroundImage: AssetImage('assets/Profile.jpg'),
                         ),
                       ),
                     ],
@@ -146,7 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ProgressBarWidget(
-                badgeText: 'Bronze',
+                badgeText: 'SDG pemula',
                 levelText: 'Level 1',
                 progressValue: 0,
               ),
