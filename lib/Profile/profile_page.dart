@@ -146,9 +146,9 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ProgressBarWidget(
-                badgeText: '19 Bronze (+3)',
+                badgeText: 'Bronze',
                 levelText: 'Level 1',
-                progressValue: 0.5,
+                progressValue: 0,
               ),
             ),
             const SizedBox(height: 16),

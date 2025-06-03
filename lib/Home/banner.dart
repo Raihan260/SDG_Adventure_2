@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:sdg_adventure_2/color.dart';
 
 class BannerWidget extends StatefulWidget {
@@ -14,14 +15,31 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   final List<String> bannerImages = [
     'assets/beach.jpg',
-    'assets/beach.jpg',
-    'assets/beach.jpg',
+    'assets/forest.jpg',
+    'assets/Langit.webp',
+  ];
+
+  final List<String> bannerUrls = [
+    'https://sdgs.scout.org/project/giat-bersih-bersih-pantai-karang-hawu',
+    'https://himaba.fkt.ugm.ac.id/2023/05/23/peran-hutan-dalam-mendukung-sustainable-development-goals/',
+    'https://www.goodnewsfromindonesia.id/2024/11/27/udara-bersih-masyarakat-sehat-langkah-indonesia-mengatasi-polusi-demi-mencapai-sdgs',
   ];
 
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  Future<void> _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Gagal membuka URL')),
+      );
+    }
   }
 
   @override
@@ -60,14 +78,16 @@ class _BannerWidgetState extends State<BannerWidget> {
                       child: Container(
                         width: double.infinity,
                         height: double.infinity,
-                        color: Colors.black.withOpacity(0.3), // overlay gelap
+                        color: Colors.black.withOpacity(0.3),
                       ),
                     ),
                     Positioned(
                       left: 16,
                       bottom: 16,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _launchURL(bannerUrls[_currentPage]);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColor.orange,
                           shape: RoundedRectangleBorder(
@@ -76,24 +96,6 @@ class _BannerWidgetState extends State<BannerWidget> {
                         ),
                         child: const Text(
                           'Explore',
-                          style: TextStyle(color: AppColor.white),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColor.orange,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Text(
-                          '13',
                           style: TextStyle(color: AppColor.white),
                         ),
                       ),

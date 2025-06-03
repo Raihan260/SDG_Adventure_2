@@ -4,6 +4,8 @@ import 'package:sdg_adventure_2/Utils/Big_quest_banner.dart';
 import 'package:sdg_adventure_2/color.dart';
 import 'package:sdg_adventure_2/utils/Mock_data.dart';
 import 'package:sdg_adventure_2/utils/Big_quest_detail.dart';
+import 'package:sdg_adventure_2/Home/Big_Quest/registration_page.dart';
+
 
 class BigQuestDetailPage extends StatelessWidget {
   final String itemId;
@@ -218,7 +220,12 @@ class BigQuestDetailPage extends StatelessWidget {
             }).toList(),
           ),
           ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RegistrationPage()),
+            );
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColor.orange,
             shape: RoundedRectangleBorder(
